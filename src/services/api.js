@@ -61,7 +61,7 @@ function initMockData() {
 }
 
 // 使用模拟模式
-const USE_MOCK = false; // 使用真实后端，后端数据库字段映射已修复
+const USE_MOCK = true; // 使用真实后端，后端数据库字段映射已修复
 
 // 打印启动模式
 console.log('=== 智能体系统启动 ===');
