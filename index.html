@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EfficodeAgent</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/pako@2.0.4/dist/pako.min.js"></script>
+  <style>
+    :root {
+      /* 赛博朋克主题色 */
+      --cyber-neon: #0ff7;
+      --cyber-pink: #f0328c;
+      --cyber-yellow: #f6fa70;
+      --cyber-blue: #00bfff;
+      --cyber-purple: #9400d3;
+      --cyber-green: #39ff14;
+      
+      /* 背景色 */
+      --bg-dark: #0a0a0f;
+      --bg-darker: #050508;
+      --bg-medium: #121220;
+      --bg-light: #1a1a2e;
+      
+      /* 文本颜色 */
+      --text-primary: #ffffff;
+      --text-secondary: rgba(255, 255, 255, 0.7);
+      --text-disabled: rgba(255, 255, 255, 0.5);
+      
+      /* 边框样式 */
+      --border-glow: 0 0 10px var(--cyber-neon);
+      --border-neon: 1px solid var(--cyber-neon);
+      
+      /* 字体 */
+      --font-display: 'Orbitron', sans-serif;
+      --font-mono: 'Share Tech Mono', monospace;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-primary);
+      font-family: var(--font-mono);
+      line-height: 1.6;
+      overflow-x: hidden;
+      background-image: 
+        linear-gradient(0deg, transparent 24%, rgba(10, 10, 15, .5) 25%, rgba(10, 10, 15, .5) 26%, transparent 27%, transparent 74%, rgba(10, 10, 15, .5) 75%, rgba(10, 10, 15, .5) 76%, transparent 77%, transparent),
+        linear-gradient(90deg, transparent 24%, rgba(10, 10, 15, .5) 25%, rgba(10, 10, 15, .5) 26%, transparent 27%, transparent 74%, rgba(10, 10, 15, .5) 75%, rgba(10, 10, 15, .5) 76%, transparent 77%, transparent);
+      background-size: 50px 50px;
+    }
+    
+    h1, h2, h3 {
+      font-family: var(--font-display);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 1rem;
+    }
+    
+    /* 赛博朋克风格装饰元素 */
+    .cyber-glitch {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cyber-glitch::before {
+      content: attr(data-text);
+      position: absolute;
+      left: -2px;
+      text-shadow: 1px 0 var(--cyber-pink);
+      top: 0;
+      color: var(--text-primary);
+      overflow: hidden;
+      clip: rect(0, 900px, 0, 0);
+      animation: cyber-glitch-anim-1 3s infinite linear alternate-reverse;
+    }
+    
+    .cyber-glitch::after {
+      content: attr(data-text);
+      position: absolute;
+      left: 2px;
+      text-shadow: -1px 0 var(--cyber-blue);
+      top: 0;
+      color: var(--text-primary);
+      overflow: hidden;
+      clip: rect(0, 900px, 0, 0);
+      animation: cyber-glitch-anim-2 2s infinite linear alternate-reverse;
+    }
+    
+    @keyframes cyber-glitch-anim-1 {
+      0% {
+        clip: rect(86px, 9999px, 82px, 0);
+      }
+      20% {
+        clip: rect(37px, 9999px, 129px, 0);
+      }
+      40% {
+        clip: rect(20px, 9999px, 22px, 0);
+      }
+      60% {
+        clip: rect(60px, 9999px, 25px, 0);
+      }
+      80% {
+        clip: rect(15px, 9999px, 18px, 0);
+      }
+      100% {
+        clip: rect(37px, 9999px, 91px, 0);
+      }
+    }
+    
+    @keyframes cyber-glitch-anim-2 {
+      0% {
+        clip: rect(11px, 9999px, 91px, 0);
+      }
+      20% {
+        clip: rect(65px, 9999px, 70px, 0);
+      }
+      40% {
+        clip: rect(29px, 9999px, 115px, 0);
+      }
+      60% {
+        clip: rect(75px, 9999px, 5px, 0);
+      }
+      80% {
+        clip: rect(23px, 9999px, 38px, 0);
+      }
+      100% {
+        clip: rect(44px, 9999px, 78px, 0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html> 
